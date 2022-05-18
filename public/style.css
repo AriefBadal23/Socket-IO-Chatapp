@@ -7,14 +7,15 @@
 }
 
 #user_input{
-    width: 300px;
+    width: 100px;
     text-align: center;
 }
 #username-form{
-    margin: 500px;
-    margin-left: 26px;
-    margin-top: 10px;
-    display: none;
+    position: fixed;
+    bottom: 0px;
+    margin: 400px;
+    margin-left: 20px;
+    margin-bottom: 180px;
 }
 #submit-form{
     position: absolute;
