@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.IO chat</title>
+    <script type="text/script" src="test.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Chatapp</h1>
+    <div class="chat-window">
+      <!-- Unordered list where all message will appear -->
+      <ul id="messageslist"></ul>
+      <form id="submit-form" action=""><input id="new-message" /><button>Send</button></form>
+
+      <form id="username-form">
+        <input type="text" id="user_input" placeholder="Enter username" />
+        <input
+          type="button"
+          id="submit_btn"
+          value="Join chat"
+          onclick="get_name()"
+        />
+
+        <!-- takes input and output to the page -->
+        <p id="newText"></p>
+      </form>
+    </div>
+  </body>
+
+
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+
+    function get_name() {
+      let user_input = document.getElementById("user_input").value;
+      let Text = (document.getElementById("newText").innerHTML = user_input);
+      console.log(Text);
+    }
+    get_name();
+
+    var submitform = document.getElementById("submit-form");
+    var newmessage = document.getElementById("new-message");
+
+    // Maak een eventlistener aan die luistert naar de submit button en maak vervolgens
+    // een functie aan die de waardes uit de inputvelden haalt als er iets wordt ingevuld en deze dan verstuurd (emit)
+    // met de waarde van de inputveld en reset de waarde van de input veld na het drukken op submit.
+    submitform.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (newmessage.value) {
+        socket.emit("chat message", newmessage.value);
+        newmessage.value = " ";
+      }
+    });
+
+    // Listen to socket io.events
+    socket.on("chat message", function (message) {
+      var item = document.createElement("li");
+      item.textContent = message;
+      messageslist.appendChild(item);
+      // window.scrollTo(0, document.body.scrollHeight);
+    });
+  </script>
+</html>
