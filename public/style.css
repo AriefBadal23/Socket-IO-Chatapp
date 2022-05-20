@@ -32,4 +32,10 @@
 ul li{
     background-color: rgb(174, 249, 174);
     list-style-type: none;
+    border-radius: 5pt;
+    height: 30px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
