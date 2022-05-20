@@ -14,7 +14,8 @@
     <div class="chat-window">
       <!-- Unordered list where all message will appear -->
       <ul id="messageslist"></ul>
-      <form id="submit-form" action=""><input id="new-message" /><button>Send</button></form>
+      <form id="submit-form" action="">
+        <input id="new-message" /><button>Send</button></form>
 
       <form id="username-form">
         <input type="text" id="user_input" placeholder="Enter username" />
@@ -30,9 +31,6 @@
       </form>
     </div>
   </body>
-
-
-  
   <script src="/socket.io/socket.io.js"></script>
   <script>
     var socket = io();
@@ -58,12 +56,20 @@
       }
     });
 
-    // Listen to socket io.events
+    // Listen to socket io.events and if there is a new message event add a new list item to the list.
     socket.on("chat message", function (message) {
       var item = document.createElement("li");
       item.textContent = message;
       messageslist.appendChild(item);
       // window.scrollTo(0, document.body.scrollHeight);
     });
+
+
+    // logs the id of the connected socket each time the socket is connected
+    socket.on('connect', () => {
+      console.log(socket.id)
+    })
+
+
   </script>
 </html>
