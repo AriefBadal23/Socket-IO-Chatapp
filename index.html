@@ -50,7 +50,7 @@
     // met de waarde van de inputveld en reset de waarde van de input veld na het drukken op submit.
     submitform.addEventListener("submit", function (event) {
       event.preventDefault();
-      if (newmessage.value) {
+      if (newmessage.value != " ") {
         socket.emit("chat message", newmessage.value);
         newmessage.value = " ";
       }
@@ -67,8 +67,10 @@
 
     // logs the id of the connected socket each time the socket is connected
     socket.on('connect', () => {
-      console.log(socket.id)
+      console.log("User connected: " + socket.id)
     })
+
+    socket.on()
 
 
   </script>

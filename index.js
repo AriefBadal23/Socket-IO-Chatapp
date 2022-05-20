@@ -21,7 +21,8 @@ io.on("connection", (socket) => {
   socket.on("chat message", (message) => {
     io.emit("chat message", message);
 
-// Listen for a disconnect event and log a message if the client is disconnected
+
+    // Listen for a disconnect event and log a message if the client is disconnected
     socket.on("disconnect", () => {
       console.log("Client disconnected");
     });
