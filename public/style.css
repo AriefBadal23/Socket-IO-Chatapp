@@ -1,32 +1,38 @@
+h1{
+    margin-left: 400px;
+}
 .chat-window{
     border: solid;
-    width: 400px;
-    height: 500px;
+    width: 800px;
+    height: 600px;
     margin-bottom: 30px;
     background-color: brown;
+    border-radius: 10px;
+    margin-left: 390px;
 }
 
 #user_input{
     width: 100px;
-    text-align: center;
+    text-align: left;
+    width: 600px;
 }
 #username-form{
     position: fixed;
     bottom: 0px;
     margin: 400px;
     margin-left: 20px;
-    margin-bottom: 180px;
+    margin-bottom: 80px;
 }
 #submit-form{
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0%;
-    margin-left: 30px;
-    margin-bottom: 155px;
+    margin-left: 420px;
+    margin-bottom: 60px;
 }
 
 #new-message{
-    width: 300px;
+    width: 600px;
 }
 
 ul li{

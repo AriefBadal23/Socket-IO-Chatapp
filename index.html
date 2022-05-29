@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Socket.IO chat</title>
-    <script type="text/script" src="test.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -15,14 +14,14 @@
       <!-- Unordered list where all message will appear -->
       <ul id="messageslist"></ul>
       <form id="submit-form" action="">
-        <input id="new-message" /><button>Send</button></form>
+        <input id="new-message" placeholder="Send a message" /><button>Send</button></form>
 
       <form id="username-form">
         <input type="text" id="user_input" placeholder="Enter username" />
         <input
           type="button"
           id="submit_btn"
-          value="Join chat"
+          value="Join"
           onclick="get_name()"
         />
 
@@ -30,7 +29,7 @@
         <p id="newText"></p>
       </form>
     </div>
-  </body>
+  </body> 
   <script src="/socket.io/socket.io.js"></script>
   <script>
     var socket = io();
