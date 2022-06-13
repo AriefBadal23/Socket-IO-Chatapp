@@ -3,6 +3,8 @@ const app = express();
 app.use(express.static("public"));
 const http = require("http");
 const server = http.createServer(app);
+
+// mount the express app to the socket
 const { Server } = require("socket.io");
 
 // io = is de server instance
@@ -28,6 +30,8 @@ io.on("connection", (socket) => {
     });
   });
 });
+
+
 
 server.listen(3000, () => {
   console.log("listening on *3000");

@@ -20,14 +20,14 @@ h1{
     position: fixed;
     bottom: 0px;
     margin: 400px;
-    margin-left: 20px;
+    margin-left: 50px;
     margin-bottom: 80px;
 }
 #submit-form{
     position: fixed;
     bottom: 0px;
     left: 0%;
-    margin-left: 420px;
+    margin-left: 450px;
     margin-bottom: 60px;
 }
 

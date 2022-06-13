@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Socket.IO chat</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
   </head>
 
   <body>
@@ -25,8 +25,6 @@
           onclick="get_name()"
         />
 
-        <!-- takes input and output to the page -->
-        <p id="newText"></p>
       </form>
     </div>
   </body> 
@@ -34,15 +32,10 @@
   <script>
     var socket = io();
 
-    function get_name() {
-      let user_input = document.getElementById("user_input").value;
-      let Text = (document.getElementById("newText").innerHTML = user_input);
-      console.log(Text);
-    }
-    get_name();
 
     var submitform = document.getElementById("submit-form");
     var newmessage = document.getElementById("new-message");
+    var username = document.getElementById("username-form")
 
     // Maak een eventlistener aan die luistert naar de submit button en maak vervolgens
     // een functie aan die de waardes uit de inputvelden haalt als er iets wordt ingevuld en deze dan verstuurd (emit)
@@ -50,7 +43,7 @@
     submitform.addEventListener("submit", function (event) {
       event.preventDefault();
       if (newmessage.value != " ") {
-        socket.emit("chat message", newmessage.value);
+        socket.emit("chat message", newmessage.value, username.value);
         newmessage.value = " ";
       }
     });
@@ -60,13 +53,12 @@
       var item = document.createElement("li");
       item.textContent = message;
       messageslist.appendChild(item);
-      // window.scrollTo(0, document.body.scrollHeight);
     });
 
 
     // logs the id of the connected socket each time the socket is connected
-    socket.on('connect', () => {
-      console.log("User connected: " + socket.id)
+    socket.on('new user', (username) => {
+      console.log(`${username} has joined the chat!`)
     })
 
     socket.on()
@@ -74,3 +66,4 @@
 
   </script>
 </html>
+
