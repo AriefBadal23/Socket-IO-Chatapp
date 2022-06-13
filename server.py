@@ -4,17 +4,13 @@ import socketio
 # Create instance of socketio.Server
 sio = socketio.Server()
 
-# Serving static files
-static_files = {
-    '/' : 'index.html',
-    '/static/index.js' : '/static/index.js',
-    'static/style.css' : 'static/style.css',
-}
-
-
-
-# Wrap with a WSGI application
+# Wrap with a WSGI application in this case a Flask application
 app= socketio.WSGIApp(sio, app)
 
+@sio.event
+def connect(sid):
+    print('connect', sid)
 
-
+@sio.event()
+def disconnect(sid):
+    print(sid, 'disconnected')
