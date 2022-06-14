@@ -1,34 +1,38 @@
 h1{
     margin-left: 400px;
 }
-.chat-window{
+.chat-join-form{
+    margin-top: 50px;
     border: solid;
     width: 800px;
     height: 600px;
     margin-bottom: 30px;
-    background-color: brown;
+    background-color: rgb(28, 119, 57);
     border-radius: 10px;
     margin-left: 390px;
 }
+.chat-join-form input{
+    width: 400px;
+    padding: 10px;
+    margin-left: 150pt;
+    margin-top: 100px;
+    margin-bottom: -100px;  
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20pt;
+}
+#logo{
+    width: 300px;
+    height: 100px; 
+    margin-left: 30%;
+    margin-top: 100px ;
+}
 
-#user_input{
-    width: 100px;
-    text-align: left;
-    width: 600px;
-}
-#username-form{
-    position: fixed;
-    bottom: 0px;
-    margin: 400px;
-    margin-left: 50px;
-    margin-bottom: 80px;
-}
-#submit-form{
-    position: fixed;
-    bottom: 0px;
-    left: 0%;
-    margin-left: 450px;
-    margin-bottom: 60px;
+#join-btn button{
+    margin-top: 120px;
+    margin-left: 25%;
+    width: 400px;
+    height: 70px;    
 }
 
 #new-message{
