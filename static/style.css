@@ -34,6 +34,14 @@ h1{
     width: 400px;
     height: 70px;    
 }
+#join-btn a{
+    margin-top: 120px;
+    width: 400px;
+    height: 70px;   
+    color: white;
+    text-decoration: none;
+    text-align: left; 
+}
 
 #new-message{
     width: 600px;
